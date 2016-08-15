@@ -1,12 +1,13 @@
 from flask import Flask, render_template
+from modules.weather.main import weatherTempF
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-    test = 4
-    return render_template('index.html', test=test)
+    currentTemp = weatherTempF() + ' F'
+    return render_template('index.html', currentTemp=currentTemp)
 
 
 @app.route('/charts')
