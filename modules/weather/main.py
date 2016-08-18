@@ -1,8 +1,7 @@
 import requests
 import json
+from settings import owmapikey, zipcode
 
-zipcode = "48917"
-owmapikey = "30c2deb5375a3862235e730f122c40ad"
 url = "http://api.openweathermap.org/data/2.5/weather?zip=%s,us&APPID=%s" % (zipcode,owmapikey)
 
 def weatherTempF():
