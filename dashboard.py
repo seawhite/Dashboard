@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, jsonify
 from modules.weather import weatherTempF, weatherIconF
+from modules.webserver_check import server_check
 
 app = Flask(__name__)
 
@@ -14,9 +15,16 @@ def index():
 def api_weather():
     current_temp = weatherTempF()
     current_icon = weatherIconF()
-    #current_temp = request.args.get('temp')
     data = {'temperature': current_temp, 'icon': current_icon}
     return jsonify(weather_data=data)
+
+
+@app.route('/api/v1/server/status')
+def api_server_status():
+    url = "http://coriewhite.me"
+    data = {'statusC': server_check(url)}
+    return jsonify(server_status=data)
+
 
 @app.route('/charts')
 def charts():
