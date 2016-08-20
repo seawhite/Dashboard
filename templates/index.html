@@ -41,10 +41,10 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="wi wi-owm-{{ weatherIcon }} fa-5x"></i>
+                                        <i id="weatherIcon" class="wi wi-owm-{{ weatherIcon }} fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">{{ currentTemp }}</div>
+                                        <div id="weatherTemp" class="huge">{{ currentTemp }}</div>
                                         <div>Current Temperature</div>
                                     </div>
                                 </div>
@@ -283,4 +283,8 @@
 
         </div>
         <!-- /#page-wrapper -->
+{% endblock %}
+{% block javascript %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="/static/js/weatherTemp.js"></script>
 {% endblock %}

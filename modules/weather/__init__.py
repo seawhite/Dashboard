@@ -19,5 +19,5 @@ def weatherIconF():
     if resp.ok:
         iconCode = resp.json()['weather'][0]['id']
     else:
-        iconCode = "230"
+        iconCode = "711"
     return iconCode

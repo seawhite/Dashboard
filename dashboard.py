@@ -1,8 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, request, render_template, jsonify
 from modules.weather import weatherTempF, weatherIconF
 
 app = Flask(__name__)
-
 
 @app.route('/')
 def index():
@@ -10,6 +9,14 @@ def index():
     weatherIcon = weatherIconF()
     return render_template('index.html', weatherIcon=weatherIcon, currentTemp=currentTemp)
 
+
+@app.route('/api/v1/weather')
+def api_weather():
+    current_temp = weatherTempF()
+    current_icon = weatherIconF()
+    #current_temp = request.args.get('temp')
+    data = {'temperature': current_temp, 'icon': current_icon}
+    return jsonify(weather_data=data)
 
 @app.route('/charts')
 def charts():
