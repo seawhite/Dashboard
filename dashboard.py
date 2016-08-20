@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from modules.weather.main import weatherTempF
+from modules.weather import weatherTempF, weatherIconF
 
 app = Flask(__name__)
 
@@ -7,7 +7,8 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     currentTemp = weatherTempF() + ' F'
-    return render_template('index.html', currentTemp=currentTemp)
+    weatherIcon = weatherIconF()
+    return render_template('index.html', weatherIcon=weatherIcon, currentTemp=currentTemp)
 
 
 @app.route('/charts')

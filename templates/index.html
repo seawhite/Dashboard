@@ -1,4 +1,10 @@
 {% extends "main/navigation.html" %}
+
+{% block css %}
+<!-- Weather icons -->
+<link href="/static/css/plugins/weather-icons.css" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
         <div id="page-wrapper">
 
@@ -35,7 +41,7 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa fa-cloud fa-5x"></i>
+                                        <i class="wi wi-owm-{{ weatherIcon }} fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">{{ currentTemp }}</div>
